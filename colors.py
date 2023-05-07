@@ -46,6 +46,6 @@ for objeto in glob.glob('./objetos/*.png'):
         ret, thresh = cv.threshold(dst, 30, 255, 0)
         thresh = cv.merge((thresh, thresh, thresh))
         res = cv.bitwise_and(alvo, thresh)
-        res = np.vstack((alvo, thresh, res))
+        res = np.hstack((alvo, thresh, res))
         print(f'>> Salvando em: ./resultados/{oname}with{tname}.jpg')
         cv.imwrite(f'./resultados/{oname}with{tname}.jpg', res)
